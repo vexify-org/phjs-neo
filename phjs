@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+// resolve real path if phjs is symlinked
+$here = __DIR__;
+while (is_link($here . '/phjs')) {
+    $target = readlink($here . '/phjs');
+    $here = $target[0] === '/' ? dirname($target) : dirname($here) . '/' . dirname($target);
+}
+
+require $here . '/src/Phjs/Logger.php';
+require $here . '/src/Phjs/Sandbox.php';
+require $here . '/src/Phjs/Server.php';
+require $here . '/src/Phjs/Cli.php';
+
+exit((new Phjs\Cli($argv))->run());

@@ -1,0 +1,7 @@
+{
+  "name": "sandbox-app",
+  "version": "1.0.0",
+  "description": "phjs sandbox application",
+  "private": true,
+  "license": "MIT"
+}
